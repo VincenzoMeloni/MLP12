@@ -18,5 +18,8 @@ train_losses, val_losses, train_accs, val_accs = train_model(
     lr=0.01
 )
 
-plot_losses(train_losses, val_losses, title="MLP - Hidden 128 - Loss")
-plot_accuracies(train_accs, val_accs, title="MLP - Hidden 128 - Accuracy")
+#Grafici
+
+plot_losses(train_losses, val_losses,title="MiniBatch Hidden128",filename="loss_minibatch_h128.png")
+
+plot_accuracies(train_accs, val_accs,title="MiniBatch Hidden128",filename="acc_minibatch_h128.png")
