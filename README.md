@@ -8,47 +8,47 @@ Study the learning behavior of a neural network with a single hidden layer by va
 
 ---
 
-## How To Install
+## How to Install
 
-### 1. Clone repository
+### 1. Clone the repository
 
-Open **command prompt** and enter:
+Open **Command Prompt** and run:
 
     git clone <repository_url>
 
-### 2. Create Virtual Environment
+### 2. Create a Virtual Environment
 
-Navigate into the **directory** '_P12-PROJECT_' and enter:
+Navigate to the **P12-PROJECT** directory and run:
 
     python -m venv venv
 
-### 3. Activate Virtual Environment
+### 3. Activate the Virtual Environment
 
-Into the same directory enter:
+In the same directory, run:
 
 **Windows**
 
-    .\/venv/Scripts/activate
+    .\venv\Scripts\activate
 
-**MacOS/Linux**
+**macOS / Linux**
 
     source venv/bin/activate
 
-### 3. Install dependecies
+### 4. Install Dependencies
 
-Into the virtual environment enter:
+With the virtual environment activated, run:
 
     python -m pip install -r requirements.txt
 
-### 4. Start Training
+### 5. Start Training
 
-To start training enter:
+To start training, run:
 
     python main.py
 
-### 5. Check Predict [optional]
+### 6. Check Prediction (optional)
 
-Change the number of the image_path into "predict.py" (The images are in the dir "images") and enter:
+Change the `image_path` in `predict.py` (test images are located in the `images` directory) and run:
 
     python predict.py
 
