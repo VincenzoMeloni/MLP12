@@ -1,4 +1,3 @@
-import torch
 from torch.utils.data import DataLoader, random_split
 from torchvision import datasets, transforms
 
@@ -13,7 +12,7 @@ def get_mnist_loaders(batch_size=32, val_split=0.1):
 
     # Dataset completo di training
     full_train_dataset = datasets.MNIST(
-        root="./datasets",
+        root="./data",
         train=True,
         download=True,
         transform=transform

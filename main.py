@@ -1,25 +1,43 @@
 from data.mnist_loader import get_mnist_loaders
-from src.model.network import MLP
-from src.training.trainer import train_model
-from src.utils.plot import plot_losses, plot_accuracies
+from src.experiments.experiment import run_experiment
 
-# caricamento dati
-train_loader, val_loader, test_loader = get_mnist_loaders(batch_size=32)
+# PARAMETRI 
+hidden_sizes = [64, 128, 256]
 
-#creazione modello
-model = MLP(hidden_size=128)
+training_modes = [
+    ("online", [1]),
+    ("batch", [None]),
+    ("minibatch", [16, 32, 64])
+]
 
-# Training
-train_losses, val_losses, train_accs, val_accs = train_model(
-    model,
-    train_loader,
-    val_loader,
-    epochs=5,
-    lr=0.01
-)
+epochs = 30
+lr = 0.01
 
-#Grafici
+for hidden_size in hidden_sizes:
 
-plot_losses(train_losses, val_losses,title="MiniBatch Hidden128",filename="loss_minibatch_h128.png")
+    print("\n" + "="*60)
+    print(f"START EXPERIMENTS - Hidden Size: {hidden_size}")
+    print("="*60)
 
-plot_accuracies(train_accs, val_accs,title="MiniBatch Hidden128",filename="acc_minibatch_h128.png")
+    for mode, batch_sizes in training_modes:
+
+        for batch_size in batch_sizes:
+
+            print(f"\n[Mode]: {mode} | [Batch Size]: {batch_size}")
+
+            if mode == "batch":
+                train_loader, val_loader, test_loader = get_mnist_loaders(batch_size=60000)
+            else:
+                train_loader, val_loader, test_loader = get_mnist_loaders(batch_size=batch_size)
+
+            run_experiment(
+                train_loader,
+                val_loader,
+                test_loader,
+                training_mode=mode,
+                hidden_size=hidden_size,
+                epochs=epochs,
+                lr=lr
+            )
+
+print("\nALL EXPERIMENTS COMPLETED")
