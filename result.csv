@@ -1,4 +1,4 @@
-Training Mode,Hidden Size,Batch Size,Epochs,Learning Rate,Test Accurancy
+Training Mode,Hidden Size,Batch Size,Epochs,Learning Rate,Test Accuracy
 online,64,1,5,0.01,95.82
 batch,64,60000,5,0.01,17.22
 minibatch,64,16,5,0.01,96.69

@@ -76,7 +76,7 @@ def run_experiment(train_loader,val_loader,test_loader,training_mode="minibatch"
                 "Batch Size",
                 "Epochs",
                 "Learning Rate",
-                "Test Accurancy"
+                "Test Accuracy"
             ])
         
         writer.writerow([
